@@ -2,8 +2,8 @@
 from twilio.rest import Client
 
 # Twilio credentials
-account_sid = 'your_account_sid'  # Replace with your Account SID from Twilio Console
-auth_token = 'your_auth_token'    # Replace with your Auth Token from Twilio Console
+account_sid = 'ACc36a86074f2c142ca44003726229afb2'  # Replace with your Account SID from Twilio Console
+auth_token = 'ef8438579f41190fb32361a3ad1fd262'    # Replace with your Auth Token from Twilio Console
 twilio_whatsapp_number = 'whatsapp:+14155238886'  # Twilio's sandbox WhatsApp number
 client = Client(account_sid, auth_token)
 
