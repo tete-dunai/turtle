@@ -1,36 +1,84 @@
-!pip install twilio
+from flask import Flask, request, jsonify
+import os
+from dotenv import load_dotenv
 from twilio.rest import Client
+from datetime import datetime
+import requests
 
-# Twilio credentials
-account_sid = 'ACc36a86074f2c142ca44003726229afb2'  # Replace with your Account SID from Twilio Console
-auth_token = 'ef8438579f41190fb32361a3ad1fd262'    # Replace with your Auth Token from Twilio Console
-twilio_whatsapp_number = 'whatsapp:+14155238886'  # Twilio's sandbox WhatsApp number
-client = Client(account_sid, auth_token)
+# Load environment variables
+load_dotenv()  # Make sure the .env file is in the root directory
 
-# Booking details
-client_whatsapp_number = 'whatsapp:+client_number'  # Replace with the client's WhatsApp number
-appointment_time = "2025-01-08 14:00"  # Example appointment time
-client_name = "John Doe"  # Replace with the client's name
+CALENDLY_API_KEY = os.getenv("CALENDLY_API_KEY")
+TWILIO_ACCOUNT_SID = os.getenv("TWILIO_ACCOUNT_SID")
+TWILIO_AUTH_TOKEN = os.getenv("TWILIO_AUTH_TOKEN")
+TWILIO_WHATSAPP_NUMBER = "whatsapp:+14155238886"
 
-# WhatsApp message
-message_body = f"""
-Hi {client_name},
-Thank you for booking an appointment with Turtle!
-Your scheduled appointment is on {appointment_time}.
-We look forward to assisting you with your financial needs.
+# Initialize Flask app
+app = Flask(__name__)
 
-If you have any questions, feel free to reach out.
-Best regards,
-The Turtle Team
-"""
+# Initialize Twilio client
+client = Client(TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN)
 
-# Send the WhatsApp message
-try:
-    message = client.messages.create(
-        from_=twilio_whatsapp_number,
-        body=message_body,
-        to=client_whatsapp_number
+# Function to sanitize phone numbers
+def sanitize_phone_number(phone_number):
+    """Sanitize phone numbers by removing spaces and dashes."""
+    return phone_number.replace(" ", "").replace("-", "")
+
+# Function to send WhatsApp messages
+def send_whatsapp_message(client_name, phone_number, event_name, event_time):
+    """Send WhatsApp confirmation messages."""
+    try:
+        # Convert event time to a user-friendly format
+        event_datetime = datetime.fromisoformat(event_time.replace("Z", "+00:00"))
+        formatted_time = event_datetime.strftime("%d %B %Y, %I:%M %p")
+    except Exception as e:
+        formatted_time = "an unknown time"
+
+    # Message content
+    message_body = (
+        f"Hello {client_name},\n"
+        f"Your booking for '{event_name}' is confirmed for {formatted_time}.\n"
+        f"Thank you for choosing Turtle Finance!"
     )
-    print(f"Message sent! SID: {message.sid}")
-except Exception as e:
-    print(f"Failed to send message: {e}")
+
+    # Send the message using Twilio API
+    try:
+        message = client.messages.create(
+            from_=TWILIO_WHATSAPP_NUMBER,
+            to=f"whatsapp:{phone_number}",
+            body=message_body
+        )
+        print(f"Message sent to {client_name}: {message.sid}")
+    except Exception as e:
+        print(f"Failed to send message to {client_name}: {e}")
+
+# Webhook to handle Calendly events
+@app.route("/calendly-webhook", methods=["POST"])
+def calendly_webhook():
+    """Process webhook events from Calendly."""
+    data = request.json
+    try:
+        # Extract event details
+        event_name = data["payload"]["event"]["name"]
+        event_time = data["payload"]["event"]["start_time"]
+        invitees = data["payload"]["invitees"]  # List of invitees
+
+        # Process each invitee
+        for invitee in invitees:
+            client_name = invitee.get("name", "Unknown Client")
+            raw_phone_number = invitee.get("text_reminder_number") or invitee.get("phone_number")
+            if raw_phone_number:
+                phone_number = sanitize_phone_number(raw_phone_number)
+                send_whatsapp_message(client_name, phone_number, event_name, event_time)
+
+    except KeyError as e:
+        print(f"Missing key in payload: {e}")
+        return jsonify({"error": f"Missing key: {e}"}), 400
+    except Exception as e:
+        print(f"Error processing webhook: {e}")
+        return jsonify({"error": str(e)}), 400
+
+    return jsonify({"message": "Webhook processed successfully"}), 200
+
+if __name__ == "__main__":
+    app.run(debug=True)
