@@ -16,9 +16,12 @@ HEADERS = {
     "Content-Type": "application/json"
 }
 
-# Fetch scheduled events from Calendly
+# Fetch scheduled events from Calendly for the user
 def fetch_scheduled_events():
-    url = "https://api.calendly.com/scheduled_events"
+    # Specify your user_uri for filtering events
+    user_uri = "https://api.calendly.com/users/8ddbd204-d64f-4218-a8b7-ebbcbaedf098"
+    url = f"https://api.calendly.com/scheduled_events?user={user_uri}"
+    
     response = requests.get(url, headers=HEADERS)
 
     if response.status_code == 200:
@@ -40,8 +43,11 @@ def fetch_invitees(invitees_url, event_name, event_time):
         invitees = response.json()['collection']
         for invitee in invitees:
             client_name = invitee['name']
-            phone_number = invitee['sms_reminder_number']  # Ensure this matches the column in your data
-            send_whatsapp_message(client_name, phone_number, event_name, event_time)
+            phone_number = invitee.get('sms_reminder_number') or invitee.get('phone_number')
+            if phone_number:  # Ensure the phone number exists
+                send_whatsapp_message(client_name, phone_number, event_name, event_time)
+            else:
+                print(f"Skipping invitee {client_name} due to missing phone number.")
     else:
         print(f"Error fetching invitees: {response.status_code}")
         print(response.json())
