@@ -6,7 +6,7 @@ from datetime import datetime
 import requests
 
 # Load environment variables
-load_dotenv()  # Make sure the .env file is in the root directory
+load_dotenv('/workspaces/turtle/env.env')  # Make sure the .env file is in the root directory
 
 CALENDLY_API_KEY = os.getenv("CALENDLY_API_KEY")
 TWILIO_ACCOUNT_SID = os.getenv("TWILIO_ACCOUNT_SID")
