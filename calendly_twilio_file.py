@@ -5,13 +5,13 @@ from datetime import datetime
 
 # Calendly API headers
 HEADERS = {
-    "Authorization": f"Bearer {os.getenv('CALENDLY_API_KEY')}",
+    "Authorization": f"Bearer {os.getenv('eyJraWQiOiIxY2UxZTEzNjE3ZGNmNzY2YjNjZWJjY2Y4ZGM1YmFmYThhNjVlNjg0MDIzZjdjMzJiZTgzNDliMjM4MDEzNWI0IiwidHlwIjoiUEFUIiwiYWxnIjoiRVMyNTYifQ.eyJpc3MiOiJodHRwczovL2F1dGguY2FsZW5kbHkuY29tIiwiaWF0IjoxNzM2MjI2NjA5LCJqdGkiOiIzNTFiNmQzOS1hOTNmLTQyYjItOTAxMy02MDAyZWRhZjM5ZjMiLCJ1c2VyX3V1aWQiOiI4ZGRiZDIwNC1kNjRmLTQyMTgtYThiNy1lYmJjYmFlZGYwOTgifQ.rfQ8dt-uxuuqZU6QH1TYe_FNIr_YZvIsl3WW39Z5yf_sOeFdJTbjt-MF4WcfvWH6Bg-aQ3_Qdh5z-QODBmNnFg')}",
     "Content-Type": "application/json"
 }
 
 # Twilio credentials
-TWILIO_ACCOUNT_SID = os.getenv("TWILIO_ACCOUNT_SID")
-TWILIO_AUTH_TOKEN = os.getenv("TWILIO_AUTH_TOKEN")
+TWILIO_ACCOUNT_SID = os.getenv("ACc36a86074f2c142ca44003726229afb2")
+TWILIO_AUTH_TOKEN = os.getenv("ef8438579f41190fb32361a3ad1fd262")
 TWILIO_WHATSAPP_NUMBER = "whatsapp:+14155238886"
 
 def fetch_scheduled_events():
