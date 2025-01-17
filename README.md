@@ -24,11 +24,11 @@
 
 ## Setting Up APIs
 
-![Google API Setup](Product Operation1.md/1a4rzxwr.png)
+![Google API Setup](Product%20Operaion1.md/1a4rzxwr.png)
 
 ### Steps to Grant Access to Your Google Advisor Sheet
 
-![Google Sheets API Access](Product Operation1.md/f5t44nkr.png)
+![Google Sheets API Access](Product%20Operaion1.md/f5t44nkr.png)
 
 1. **Enable the Google Sheets API**:
    - Go to the [Google Cloud Console](https://console.cloud.google.com/).
@@ -51,8 +51,8 @@
    - Click on **Share** and add the **service account email** from the JSON file (e.g., `your-service-account@project-id.iam.gserviceaccount.com`).
    - Give it **Editor** permissions.
 
-![Service Account Key](Product Operation1.md/asbhmdok.png)
-![Google Sheets API Configuration](Product Operation1.md/ok1rr3ry.png)
+![Service Account Key](Product%20Operaion1.md/asbhmdok.png)
+![Google Sheets API Configuration](Product%20Operaion1.md/ok1rr3ry.png)
 
 ---
 
@@ -76,7 +76,7 @@
 
 ### Setting Up WhatsApp Cloud API
 
-![WhatsApp Cloud API Setup](Product Operation1.md/hdbralyn.png)
+![WhatsApp Cloud API Setup](Product%20Operaion1.md/hdbralyn.png)
 
 1. **Create a Facebook Business Account**:
    - Go to **Meta Business Suite** and create a Business Account.
@@ -122,13 +122,13 @@
 3. **Sending WhatsApp Message**:
    - The server uses the WhatsApp Cloud API to send a formatted confirmation message.
 
-![Message Workflow](Product Operation1.md/bogk5akd.png)
+![Message Workflow](Product%20Operaion1.md/bogk5akd.png)
 
 ---
 
 ### 2. Advisor Bio Sharing (1 Day Before)
 
-![Advisor Sharing Workflow](Product Operation1.md/dvolynsc.png)
+![Advisor Sharing Workflow](Product%20Operaion1.md/dvolynsc.png)
 
 **Objective**: Automatically send the advisor’s bio to the client via WhatsApp one day before the scheduled appointment.
 
