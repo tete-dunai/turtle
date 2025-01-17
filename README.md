@@ -40,11 +40,11 @@ notifications.
 
 ***SETTING*** ***UP*** ***APIs***
 
-<img src="Product%20Operaion1.md/1a4rzxwr.png"
+<img src="Images/1a4rzxwr.png"
 style="width:4.35417in;height:2.14583in" />**Steps** **to** **Grant**
 **Access** **to** **Your** **Google** **Advisor** **Sheet**
 
-<img src="Product%20Operaion1.md/f5t44nkr.png" style="width:3.30208in;height:2.75in" />
+<img src="Images/f5t44nkr.png" style="width:3.30208in;height:2.75in" />
 
 > 1\. **Enable** **the** **Google** **Sheets** **API**:
 >
@@ -86,8 +86,8 @@ style="width:4.35417in;height:2.14583in" />**Steps** **to** **Grant**
 >
 > • Give it **Editor** permissions.
 
-<img src="Product%20Operaion1.md/asbhmdok.png"
-style="width:2.36458in;height:1.26042in" /><img src="Product%20Operaion1.md/ok1rr3ry.png"
+<img src="Images/asbhmdok.png"
+style="width:2.36458in;height:1.26042in" /><img src="Images/ok1rr3ry.png"
 style="width:6.27083in;height:2.59375in" />
 
 > **Setting** **Up** **Calendly** **API:**
@@ -116,14 +116,14 @@ style="width:6.27083in;height:2.59375in" />
 >
 > 3\. **Use** **the** **API** **Token** **in** **Requests**:
 >
-> <img src="Product%20Operaion1.md/hv0gq4tm.png"
+> <img src="Images/hv0gq4tm.png"
 > style="width:4.48958in;height:0.82292in" />• Add the token to the
 > Authorization header in your script to authenticate API calls: }
 
 This ensures Calendly can trigger webhooks and your server can
 authenticate requests.
 
-<img src="Product%20Operaion1.md/lvhwsanu.png"
+<img src="Images/lvhwsanu.png"
 style="width:5.38542in;height:2.48958in" />
 
 **Setting** **Up** **WhatsApp** **Cloud** **API**
@@ -174,7 +174,7 @@ style="width:5.38542in;height:2.48958in" />
 These steps ensure your app is ready to send messages via WhatsApp Cloud
 API.
 
-<img src="Product%20Operaion1.md/hdbralyn.png"
+<img src="Images/hdbralyn.png"
 style="width:3.46875in;height:2.3125in" />
 
 After setting up the APIs, we created an .env **file** to securely store
@@ -205,11 +205,11 @@ all the necessary tokens and IDs required for the task.
 >
 > 3\. **Sending** **WhatsApp** **Message**:
 >
-> <img src="Product%20Operaion1.md/bogk5akd.png"
+> <img src="Images/bogk5akd.png"
 > style="width:4.90625in;height:1.51042in" />• The server uses the
 > WhatsApp Cloud API to send a formatted confirmation message.
 
-<img src="Product%20Operaion1.md/fktzhyvh.png" style="width:4.20833in;height:1.25in" /><img src="Product%20Operaion1.md/vperjbhb.png"
+<img src="Images/fktzhyvh.png" style="width:4.20833in;height:1.25in" /><img src="Images/vperjbhb.png"
 style="width:6.27083in;height:1.61458in" />
 
 **Code** **Snippet**:
@@ -232,13 +232,13 @@ before the scheduled appointment.
 >
 > • Example sheet structure:
 
-<img src="Product%20Operaion1.md/dvolynsc.png"
+<img src="Images/dvolynsc.png"
 style="width:6.97917in;height:1.51042in" />• Python code for fetching
 advisor data:
 
-<img src="Product%20Operaion1.md/by11oaee.png"
-style="width:6.98958in;height:1.58333in" /><img src="Product%20Operaion1.md/rkijozfv.png"
-style="width:6.27083in;height:1.67708in" /><img src="Product%20Operaion1.md/kbvnmk35.png"
+<img src="Images/by11oaee.png"
+style="width:6.98958in;height:1.58333in" /><img src="Images/rkijozfv.png"
+style="width:6.27083in;height:1.67708in" /><img src="Images/kbvnmk35.png"
 style="width:6.27083in;height:1.58333in" />
 
 2\. **Schedule** **the** **Message** **(1** **Day** **Before)**:
@@ -265,9 +265,9 @@ style="width:6.27083in;height:1.58333in" />
 > 2\. Schedule a message 1 day before the appointment using the above
 > functions.
 
-<img src="Product%20Operaion1.md/aisybr4j.png"
-style="width:5.77083in;height:0.86458in" /><img src="Product%20Operaion1.md/mod4fydo.png"
-style="width:6.69792in;height:0.47917in" /><img src="Product%20Operaion1.md/4ddzn5ox.png"
+<img src="Images/aisybr4j.png"
+style="width:5.77083in;height:0.86458in" /><img src="Images/mod4fydo.png"
+style="width:6.69792in;height:0.47917in" /><img src="Images/4ddzn5ox.png"
 style="width:6.84375in;height:1.10417in" />
 
 **3.** **Reminder** **Message** **(1** **Hour** **Before)**
@@ -303,12 +303,12 @@ call.
 
 4\. **Send** **the** **WhatsApp** **Reminder** **Message**:
 
-<img src="Product%20Operaion1.md/uwjficbg.png"
+<img src="Images/uwjficbg.png"
 style="width:4.41667in;height:1.51042in" />• Use the WhatsApp Cloud API
 to send the formatted reminder message to the client:
 
-<img src="Product%20Operaion1.md/kvafwseo.png"
-style="width:5.3125in;height:1.23958in" /><img src="Product%20Operaion1.md/3q0vc01m.png"
+<img src="Images/kvafwseo.png"
+style="width:5.3125in;height:1.23958in" /><img src="Images/3q0vc01m.png"
 style="width:7.0625in;height:2.67708in" />
 
 5\. **Integration** **into** **Webhook**:
@@ -329,10 +329,10 @@ webhook.
 
 4\. Send the reminder via WhatsApp at the correct time.
 
-<img src="Product%20Operaion1.md/dplkhrrb.png"
+<img src="Images/dplkhrrb.png"
 style="width:4.84375in;height:1.39583in" />**Screenshot:**
 
-<img src="Product%20Operaion1.md/pd1pybsz.png" style="width:4.20833in;height:1.25in" />
+<img src="Images/pd1pybsz.png" style="width:4.20833in;height:1.25in" />
 
 **4.** **Dynamic** **Updates** **for** **New** **Clients/Advisors**
 
@@ -358,11 +358,11 @@ fetches the updated advisor list dynamically.
 
 • This ensures the latest advisors are considered during scheduling.
 
-<img src="Product%20Operaion1.md/5d3lilay.png" style="width:6.66667in;height:2in" />•
+<img src="Images/5d3lilay.png" style="width:6.66667in;height:2in" />•
 Python code to fetch updated data:
 
-<img src="Product%20Operaion1.md/d4vm0rve.png"
-style="width:6.27083in;height:1.92708in" /><img src="Product%20Operaion1.md/weu4zrdb.png"
+<img src="Images/d4vm0rve.png"
+style="width:6.27083in;height:1.92708in" /><img src="Images/weu4zrdb.png"
 style="width:6.72917in;height:0.52083in" />
 
 3\. **Assign** **Advisors** **Dynamically**:
